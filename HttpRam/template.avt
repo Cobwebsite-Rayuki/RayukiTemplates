@@ -1,0 +1,12 @@
+{
+	"name": "Rayuki.Ram.Http",
+	"description": "Create a ram http",
+	"version": "1.0.0",
+	"variables": {
+		"name" : {
+			"defaultValue":"",
+			"question": "Define the data name for your ram",
+			"type": "input"
+		}
+	}
+}

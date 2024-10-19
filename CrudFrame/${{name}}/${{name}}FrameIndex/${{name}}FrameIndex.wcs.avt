@@ -1,0 +1,14 @@
+@import '@root/static/_responsive.gs.avt';
+
+:host {
+	padding: 15px;
+	flex-direction: column;
+
+	.table {
+		flex-grow: 1;
+	}
+}
+
+:host([visible]) {
+	display: flex;
+}

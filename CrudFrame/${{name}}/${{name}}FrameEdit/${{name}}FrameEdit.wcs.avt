@@ -1,0 +1,25 @@
+:host {
+	padding: 15px 0;
+	.header {
+		align-items: center;
+		display: flex;
+		height: 62px;
+
+		h3 {
+			height: 22px;
+			font-size: var(--font-size-md);
+			margin: 20px 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 100%;
+		}
+	}
+
+	.center {
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
+	}
+}

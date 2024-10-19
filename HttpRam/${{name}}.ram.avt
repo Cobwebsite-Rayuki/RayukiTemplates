@@ -1,0 +1,35 @@
+
+
+namespace Ram {
+	
+	export class ${{name}}RAM extends AventusSharp.RAM.RamHttp<${{name}}> implements Aventus.IRam {
+        
+		/**
+		 * Create a singleton to store data
+		 */
+		public static getInstance(): ${{name}}RAM {
+			return Aventus.Instance.get(${{name}}RAM);
+		}
+	
+		/**
+		 * @inheritdoc
+		 */
+		public override defineIndexKey(): keyof ${{name}} {
+			return 'Id';
+		}
+		/**
+		 * @inheritdoc
+		 */
+		protected override getTypeForData(objJson: Aventus.KeysObject<${{name}}> | ${{name}}): new () => ${{name}} {
+			return ${{name}};
+		}
+
+		/**
+         * @inheritdoc
+         */
+		public override defineRoutes(): AventusSharp.Routes.StorableRoute<${{name}}> {
+			return new ${{name}}Route();
+		}
+			
+	}
+}

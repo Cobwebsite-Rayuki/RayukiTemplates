@@ -1,0 +1,44 @@
+namespace Application.Main.Frame.${{name}} {
+    export class ${{name}}FrameIndex extends Core.System.FrameNoScroll implements Aventus.DefaultComponent {
+
+        //#region static
+
+        //#endregion
+
+
+        //#region props
+
+        //#endregion
+
+
+        //#region variables
+
+        //#endregion
+
+
+        //#region constructor
+
+        //#endregion
+
+
+        //#region methods
+        /**
+         * @inheritdoc
+         */
+        public override pageTitle(): string {
+            return "Liste des ${{name}}";
+        }
+        /**
+         * @inheritdoc
+         */
+        public override onShow() {
+        }
+        /**
+         * @inheritdoc
+         */
+        public override onHide() {
+        }
+        //#endregion
+
+	}
+}

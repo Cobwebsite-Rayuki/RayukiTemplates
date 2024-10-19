@@ -1,0 +1,14 @@
+<div class="header">
+    <h3>{{ this.page_title }}</h3>
+</div>
+<div class="body">
+    <rk-row>
+        <rk-col size="12" size_md="6">
+            <rk-input label="Nom" :formPart="this.state.form.Nom"></rk-input>
+        </rk-col>
+        <rk-col size="12" class="center">
+            <rk-button color="red" @press="cancel">Annuler</rk-button>
+            <rk-button color="green" @press="save">Valider</rk-button>
+        </rk-col>
+    </rk-row>
+</div>

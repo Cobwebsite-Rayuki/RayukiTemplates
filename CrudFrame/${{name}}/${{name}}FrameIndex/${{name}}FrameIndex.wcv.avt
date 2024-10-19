@@ -1,0 +1,1 @@
+<${{module|lower}}-${{name|lower}}-frame-table class="table" :grid_breakpoint="Core.System.ApplicationBreakPoint.sm"></${{module|lower}}-${{name|lower}}-frame-table>

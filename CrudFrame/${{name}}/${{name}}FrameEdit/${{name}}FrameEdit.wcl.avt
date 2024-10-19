@@ -1,0 +1,102 @@
+import { ${{name}}RAM } from "../../../../../ram/${{name}}.ram.avt";
+import { CreateOrUpdate${{name}} } from "./CreateOrUpdate${{name}}.state.avt";
+
+namespace Application.Main.Frame.${{name}} {
+    export class ${{name}}FrameEdit extends Core.System.FrameState<CreateOrUpdate${{name}}> implements Aventus.DefaultComponent {
+
+        //#region static
+
+        //#endregion
+
+
+        //#region props
+
+        //#endregion
+
+
+        //#region variables
+        @Watch()
+        public page_title?: string;
+        //#endregion
+
+
+        //#region constructor
+
+        //#endregion
+
+
+        //#region methods
+        /**
+         * @inheritdoc
+         */
+        protected override getState(): new (...args: any[]) => CreateOrUpdate${{name}} {
+            return CreateOrUpdate${{name}};
+        }
+        /**
+         * @inheritdoc
+         */
+        public override async can(state: Aventus.State): Promise<string | boolean | Core.State.ApplicationState> {
+            if(state instanceof this.getState()) {
+                if(state.item.Id > 0) {
+                    const item = await this.application.executeWithLoading(${{name}}RAM.getInstance().getByIdWithError(state.item.Id));
+                    if(item)
+                        return true;
+                }
+                else {
+                    return true;
+                }
+            }
+            return this.onStateMissmatch()
+        }
+        /**
+         * @inheritdoc
+         */
+        protected override onStateMissmatch(): Aventus.Asyncable<string | boolean | Core.State.ApplicationState> {
+            return "/";
+        }
+        /**
+         * @inheritdoc
+         */
+        public override pageTitle(): string {
+            this.page_title = this.determinePageTitle();
+            return this.page_title;
+        }
+
+        public determinePageTitle() {
+            if(this.state.item.Id == 0) {
+                return "Création d'un ${{name|lower}}";
+            }
+            return "Edition du ${{name|lower}}";
+        }
+        /**
+         * @inheritdoc
+         */
+        public override onShow() {
+
+        }
+        /**
+         * @inheritdoc
+         */
+        public override onHide() {
+
+        }
+
+
+        public async save() {
+            if(this.state instanceof CreateOrUpdate${{name}}) {
+                if(await this.state.save()) {
+                    this.application.navigatePrevious(true)
+                }
+            }
+        }
+
+        public cancel() {
+            if(this.state instanceof CreateOrUpdate${{name}}) {
+                this.state.cancel();
+            }
+        }
+
+        //#endregion
+
+    }
+}

@@ -1,0 +1,79 @@
+import { ${{name}} } from "../../../../../../../generated/Data/${{name}}.data.avt";
+import { ${{name}}RAM } from "../../../../../../../ram/${{name}}.ram.avt";
+import { CreateOrUpdate${{name}} } from "../../../${{name}}FrameEdit/CreateOrUpdate${{name}}.state.avt";
+
+namespace Application.Main.Frame.${{name}}.${{name}}FrameIndex.Components {
+    export class ${{name}}FrameTable extends Core.Components.TableData<${{name}}> implements Aventus.DefaultComponent {
+
+        //#region static
+
+        //#endregion
+
+
+        //#region props
+
+        //#endregion
+
+
+        //#region variables
+
+        //#endregion
+
+
+        //#region constructor
+
+        //#endregion
+
+
+        //#region methods
+        /**
+         * @inheritdoc
+         */
+        public override defineDeleteMessage(data: ${{name}}): string {
+            return `Etes-vous sûr de bien vouloir supprimer l'élément ${data.Nom}?`;
+        }
+
+        /**
+         * @inheritdoc
+         */
+        public override defineRAM(): Aventus.Ram<${{name}}, ${{name}}> {
+            return ${{name}}RAM.getInstance();
+        }
+        /**
+         * @inheritdoc
+         */
+        public override defineNewState(): Aventus.State {
+            return new CreateOrUpdate${{name}}();
+        }
+        /**
+         * @inheritdoc
+         */
+        public override defineEditState(data: ${{name}}): Aventus.State {
+            return new CreateOrUpdate${{name}}(data);
+        }
+        /**
+         * @inheritdoc
+         */
+        protected override configure(options: Core.Components.TableDataOptions<${{name}}>): Core.Components.TableDataOptions<${{name}}> {
+            options.title = "Gestion des ${{name}}";
+            options.globalSearch = true;
+            options.schema = [{
+                name: "Nom",
+                displayName: "Nom",
+                type: "string",
+                minWidth: 100,
+            }, {
+                displayName: "Action",
+                name: "",
+                type: "custom",
+                cell: Core.Components.TableDataCellAction,
+                cellHeader: Core.Components.TableDataCellHeaderAction,
+                width: 100
+            }];
+            return options;
+        }
+
+        //#endregion
+
+    }
+}

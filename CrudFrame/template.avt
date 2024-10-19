@@ -1,0 +1,15 @@
+{
+	"name": "Rayuki.Frames.Crud frames",
+	"description": "Create frames to easly manage crud",
+	"version": "1.0.0",
+	"variables": {
+		"name" : {
+			"defaultValue":"",
+			"question": "Define the name of the data that will be edited",
+			"type": "input",
+			"validation": [{
+				"pattern": "\\S"
+			}]
+		}
+	}
+}

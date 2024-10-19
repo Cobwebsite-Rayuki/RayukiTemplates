@@ -1,0 +1,56 @@
+import { ${{name}} } from "../../../../../generated/Data/${{name}}.data.avt";
+import { ${{name}}RAM } from "../../../../../ram/${{name}}.ram.avt";
+
+namespace Application.Main.Frame.${{name}}.State {
+    export type ${{name}}FormSchema = {
+        Nom: string,
+    };
+    export type ${{name}}Form = Core.Components.VirtualForm<${{name}}FormSchema>;
+
+    export class CreateOrUpdate${{name}} extends Core.State.CreateOrUpdate<${{name}}> implements Aventus.IState {
+        /**
+         * @inheritdoc
+         */
+        protected override defineForm(): Core.Components.FormSchema<Partial<${{name}}>> {
+            return {
+                Nom: {
+                    validate: (value) => {
+                        if(!value) {
+                            return "Le nom doit être rempli";
+                        }
+                        return true;
+                    }
+                },
+            };
+        }
+
+        /**
+         * @inheritdoc
+         */
+        protected override configureForm(config: Core.Components.VirtualFormConfig): Core.Components.VirtualFormConfig {
+            config.validateOnChange = false;
+            return config;
+        }
+
+        /**
+         * @inheritdoc
+         */
+        protected override defineRAM(): Aventus.Ram<${{name}}, ${{name}}> {
+            return ${{name}}RAM.getInstance();
+        }
+        /**
+         * @inheritdoc
+         */
+        protected override defineObjectName(): string {
+            return '${{name|lower}}';
+        }
+
+        /**
+         * @inheritdoc
+         */
+        public override newElement(): ${{name}} {
+            return new ${{name}}();
+        }
+
+    }
+}
