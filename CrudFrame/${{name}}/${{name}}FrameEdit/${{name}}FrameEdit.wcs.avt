@@ -6,7 +6,6 @@
 		height: 62px;
 
 		h3 {
-			height: 22px;
 			font-size: var(--font-size-md);
 			margin: 20px 0;
 			overflow: hidden;

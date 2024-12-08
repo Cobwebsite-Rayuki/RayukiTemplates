@@ -27,7 +27,7 @@ namespace Ram {
 		/**
          * @inheritdoc
          */
-		public override defineRoutes(): AventusSharp.Routes.StorableWsRoute<${{name}}> {
+		public override defineRoutes(): AventusSharp.Routes.StorableWsRouter<${{name}}> {
 			return new ${{name}}Router();
 		}
 			
